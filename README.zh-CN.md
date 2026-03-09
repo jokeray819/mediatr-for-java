@@ -93,3 +93,16 @@ mediatr4j.notification-publisher=TASK_WHEN_ALL
 
 - 当前项目已提供 Spring Boot 自动配置，但在没有 Spring 依赖的纯 Java 环境中，这部分能力不会生效。
 - 当前仓库内的验证以本地自检为主；如果需要完整的 Spring 集成测试，还需要在可联网或已缓存依赖的环境中运行 Maven/Gradle。
+
+## 发版到 Maven Central
+
+仓库已加入通过 Sonatype Central Portal 发布到 Maven Central 的 GitHub Actions 流程，并使用 `central-publishing-maven-plugin`。
+
+你需要在 GitHub 仓库中配置以下 secrets：
+
+- `MAVEN_CENTRAL_USERNAME`
+- `MAVEN_CENTRAL_PASSWORD`
+- `MAVEN_GPG_PRIVATE_KEY`
+- `MAVEN_GPG_PASSPHRASE`
+
+工作流文件见 [.github/workflows/release.yml](/Users/jianglei/my/java/Java-Mediatr/.github/workflows/release.yml)。当 GitHub Release 被发布时，流程会自动执行。

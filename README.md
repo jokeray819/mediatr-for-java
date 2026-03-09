@@ -73,3 +73,16 @@ The sample uses deferred `Publisher` resolution inside the handler to avoid a Sp
 - Async request APIs use `CompletionStage`.
 - Stream requests use `Flow.Publisher` to approximate `.NET` async streams.
 - Notification publishers ship with sequential (`ForeachAwaitPublisher`) and parallel (`TaskWhenAllPublisher`) implementations.
+
+## Release
+
+This repository includes GitHub Actions publishing to Maven Central via Sonatype Central Portal and the `central-publishing-maven-plugin`.
+
+Required GitHub repository secrets:
+
+- `MAVEN_CENTRAL_USERNAME`
+- `MAVEN_CENTRAL_PASSWORD`
+- `MAVEN_GPG_PRIVATE_KEY`
+- `MAVEN_GPG_PASSPHRASE`
+
+The workflow is defined in [.github/workflows/release.yml](/Users/jianglei/my/java/Java-Mediatr/.github/workflows/release.yml) and runs when a GitHub Release is published.
