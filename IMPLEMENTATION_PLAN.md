@@ -34,10 +34,10 @@ This project is modeled after the public feature set documented in the official 
 - Request and notification dispatch: complete
 - Stream dispatch: complete
 - Pipeline/processors/exceptions: complete
+- Spring Boot auto-configuration: complete
 - Tests: complete
 
 ## Next recommended expansion
 
-- Add Spring Boot autoconfiguration for classpath scanning and bean-based registration.
 - Publish artifacts to Maven Central.
 - Add benchmarks comparing sequential vs parallel notification publishing.

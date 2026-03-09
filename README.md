@@ -1,5 +1,7 @@
 # mediatr4j
 
+[中文 README](./README.zh-CN.md)
+
 `mediatr4j` is a Java implementation of the core ideas in [.NET MediatR](https://github.com/LuckyPennySoftware/MediatR).
 
 ## Implemented capabilities
@@ -15,6 +17,7 @@
 - Request exception actions
 - Request exception handlers
 - Pluggable notification publishing strategies
+- Spring Boot auto-configuration and component registration
 
 ## Example
 
@@ -34,6 +37,31 @@ Mediator mediator = MediatorBuilder.builder()
 OrderCreated created = mediator.send(new CreateOrder("A-1"))
     .toCompletableFuture()
     .join();
+```
+
+## Spring Boot
+
+Add `@EnableMediatr4j` to your application or configuration class. Any Spring beans implementing the supported contracts will be scanned and auto-registered into the shared `Mediator` bean.
+
+```java
+@SpringBootApplication
+@EnableMediatr4j(basePackageClasses = DemoApplication.class)
+public class DemoApplication {
+}
+
+@Component
+final class CreateOrderHandler implements RequestHandler<CreateOrder, OrderCreated> {
+    @Override
+    public CompletionStage<OrderCreated> handle(CreateOrder request) {
+        return CompletableFuture.completedFuture(new OrderCreated(request.id()));
+    }
+}
+```
+
+`Mediator`, `Sender`, and `Publisher` are exposed as beans automatically. You can override the notification strategy with either a custom `NotificationPublisher` bean or configuration:
+
+```properties
+mediatr4j.notification-publisher=TASK_WHEN_ALL
 ```
 
 ## Design notes
