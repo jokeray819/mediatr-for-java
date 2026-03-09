@@ -1,4 +1,4 @@
-# Java-Mediatr Implementation Plan
+# mediatr4j Implementation Plan
 
 ## Reference baseline
 

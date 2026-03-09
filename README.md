@@ -1,6 +1,6 @@
-# Java-Mediatr
+# mediatr4j
 
-`Java-Mediatr` is a Java implementation of the core ideas in [.NET MediatR](https://github.com/LuckyPennySoftware/MediatR).
+`mediatr4j` is a Java implementation of the core ideas in [.NET MediatR](https://github.com/LuckyPennySoftware/MediatR).
 
 ## Implemented capabilities
 
