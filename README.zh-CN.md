@@ -79,6 +79,9 @@ mediatr4j.notification-publisher=TASK_WHEN_ALL
 - `FOREACH_AWAIT`：顺序执行通知处理器
 - `TASK_WHEN_ALL`：并行等待所有通知处理器完成
 
+完整示例应用见 [examples/spring-boot-starter-demo/README.md](/Users/jianglei/my/java/Java-Mediatr/examples/spring-boot-starter-demo/README.md)。
+示例里在 handler 内部延迟获取 `Publisher`，用于避免 Spring 创建 `Mediator` 与 handler 时出现循环依赖。
+
 ## 设计说明
 
 - `.NET` MediatR 主要依赖 DI 容器中的开放泛型注册。Java 版本没有直接复制这套机制，而是使用显式 `MediatorBuilder` 注册，更符合 Java 泛型擦除后的使用习惯。

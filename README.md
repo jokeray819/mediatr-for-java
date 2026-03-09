@@ -64,6 +64,9 @@ final class CreateOrderHandler implements RequestHandler<CreateOrder, OrderCreat
 mediatr4j.notification-publisher=TASK_WHEN_ALL
 ```
 
+A complete sample application is available at [examples/spring-boot-starter-demo/README.md](/Users/jianglei/my/java/Java-Mediatr/examples/spring-boot-starter-demo/README.md).
+The sample uses deferred `Publisher` resolution inside the handler to avoid a Spring bean creation cycle.
+
 ## Design notes
 
 - `.NET` MediatR integrates with DI containers through open generic registrations. This Java version uses an explicit builder/registry because Java erasure makes that pattern less natural without a container-specific adapter layer.
